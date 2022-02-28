@@ -11,7 +11,7 @@ print(images_path)
 #Searches for the image
 def see_if_ready():
     while True:
-        #try:
+        try:
             image = pyautogui.locateOnScreen(images_path + 'plant_ready.png')
             while image == None:
                 image = pyautogui.locateOnScreen(images_path + "plant_ready.png")
@@ -24,8 +24,8 @@ def see_if_ready():
             print('Detected that plants are ready for harvest')
             print('clicking on harvest')
             break
-        #except:
-            #print('Hit an error in the see_if_ready loop ....')
+        except:
+            print('Hit an error in the see_if_ready loop ....')
 
 
 def click_compound():
