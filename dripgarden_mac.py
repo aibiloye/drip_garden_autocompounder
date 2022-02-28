@@ -5,7 +5,7 @@ import os
 
 pth = os.path.abspath(__file__)
 root = os.path.abspath(os.path.join(pth, os.pardir))
-images_path = os.path.join(root,'images\\')
+images_path = os.path.join(root,'images/')
 print(images_path)
 
 #Searches for the image
