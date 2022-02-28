@@ -7,6 +7,7 @@ Once python is downloaded, you will need to install pyautogui and open-cv (this 
   - In a terminal type in:
   -   pip install opencv-python
   -   pip install pyautogui 
+  -   pip install Pillow
 
 
 This program relies on image recognition, and the images will be specific to your computer due to resolution.
