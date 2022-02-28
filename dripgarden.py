@@ -1,46 +1,52 @@
 import pyautogui
 import time
 import sys
+import os
 
+pth = os.path.abspath(__file__)
+root = os.path.abspath(os.path.join(pth, os.pardir))
+images_path = os.path.join(root,'images\\')
+print(images_path)
 
 #Searches for the image
 def see_if_ready():
     while True:
         try:
-            image = pyautogui.locateOnScreen("images/plant_ready.png")
+            image = pyautogui.locateOnScreen(images_path + 'plant_ready.png')
             while image == None:
-                image = pyautogui.locateOnScreen("images/plant_ready.png")
+                image = pyautogui.locateOnScreen(images_path + "plant_ready.png")
                 print("Your plants are not ready to harvest yet....")
                 print('Looking for plants to harvest....\n\n')
-                print('No Plants Found - Checking again in 2 minutes')
+                print('No Plants Found - Checking again in 300 seconds')
 
                 time.sleep(300)
-            pyautogui.click('images/plant_ready.png')
+            pyautogui.click(images_path + 'plant_ready.png')
             print('Detected that plants are ready for harvest')
             print('clicking on harvest')
             break
         except:
-            pass
+            print('Hit an error in the see_if_ready loop ....')
+
 
 def click_compound():
             while True:
                 try:
                     print('looking ............')
-                    image = pyautogui.locateOnScreen("images/plant_seeds.png",confidence=0.7)
+                    image = pyautogui.locateOnScreen(images_path + "plant_seeds.png", confidence=0.7)
                     while image == None:
-                        image = pyautogui.locateOnScreen("images/plant_seeds.png", confidence=0.7)
+                        image = pyautogui.locateOnScreen(images_path + "plant_seeds.png", confidence=0.7)
                         pyautogui.scroll(-300)
                         time.sleep(1)
                         print('didnt find the image')
                     time.sleep(2)
-                    image = pyautogui.locateOnScreen("images/plant_seeds.png", confidence=0.7)
+                    image = pyautogui.locateOnScreen(images_path + "plant_seeds.png", confidence=0.7)
                     pyautogui.click(image)
                     print('Clicked on Plant Seeds... ')
                     time.sleep(3)
                     pyautogui.scroll(10000)
                     break
                 except:
-                    pass
+                    print('Hit an error in the click_compound loop ....')
 
 
 def metamask():
@@ -48,21 +54,21 @@ def metamask():
         try:
             print('Waiting for MM to open')
             print('Checking for correct contract address')
-            image = pyautogui.locateOnScreen("images/meta_mask.png", confidence=0.7)
+            image = pyautogui.locateOnScreen(images_path + "meta_mask.png", confidence=0.7)
             while image == None:
-                image = pyautogui.locateOnScreen("images/meta_mask.png", confidence=0.7)
+                image = pyautogui.locateOnScreen(images_path + "meta_mask.png", confidence=0.7)
                 time.sleep(1)
-            address = pyautogui.locateOnScreen("images/security.png")
+            address = pyautogui.locateOnScreen(images_path + "security.png")
             if address == None:
                 sys.exit('The Code did not detect the correct contract.... Exiting the program for your safety')
             pyautogui.click(image)
             pyautogui.scroll(-500)
             time.sleep(1)
-            image = pyautogui.locateOnScreen("images/confirm.png", confidence=0.7)
+            image = pyautogui.locateOnScreen(images_path + "confirm.png", confidence=0.7)
             pyautogui.click(image)
             break
         except:
-            pass
+            print('Hit an error in the metamask loop ....')
 
 
 def main():
