@@ -19,3 +19,8 @@ You will also need to disable the screen saver because the program will not be a
 
 * This program or developer is not responsible for any damages to your computer and are not liable in any way. Use at your own risk!
 
+
+
+If you want to donate, I'd great appreciate it!
+MM:
+0x9D4071562A1C8dF87048Cb67D22550C81510eA8f
