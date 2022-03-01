@@ -58,7 +58,7 @@ def metamask():
             while image == None:
                 image = pyautogui.locateOnScreen(images_path + "meta_mask.png", confidence=0.7)
                 time.sleep(1)
-            address = pyautogui.locateOnScreen(images_path + "security.png")
+            address = pyautogui.locateOnScreen(images_path + "security.png", confidence=0.7)
             if address == None:
                 sys.exit('The Code did not detect the correct contract.... Exiting the program for your safety')
             pyautogui.click(image)
